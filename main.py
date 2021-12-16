@@ -20,11 +20,12 @@ while True:
         smile=face_smile.detectMultiScale(gray_roi,1.3,5)
         for x1,y1,w1,h1 in smile:
             cv.rectangle(face_roi,(x1,y1),(x1+w1,y1+h1),(0,0,255),thickness=2)
-            cv.putText(frame,"Smile",(x+100,y+100),cv.FONT_HERSHEY_TRIPLEX,1.0,(0,255,0),thickness=2)            # Saving Selfie in Directory
+            cv.putText(frame,"Smile",(x+100,y+100),cv.FONT_HERSHEY_TRIPLEX,1.0,(0,255,0),thickness=1)
             time_stamp=datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
             file_name=f"selfie-{time_stamp}.png"
+            # Saving Selfie in Directory
             #cv.imwrite("selfie.png",original_frame)
-            cv.imwrite(file_name,original_frame)
+            #cv.imwrite(file_name,original_frame)
     cv.imshow("Camera_real",frame)
     if cv.waitKey(10)==ord("q"):
         break
